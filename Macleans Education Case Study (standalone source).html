@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Maclean's Education — Case Study</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter+Tight:wght@300..700&display=swap" rel="stylesheet" />
+
+<!-- Resources referenced from JSX expressions — lifted here so the bundler can find them. -->
+<meta name="ext-resource-dependency" content="assets/cover-hero.png" data-resource-id="coverHero" />
+<meta name="ext-resource-dependency" content="assets/old-home.png" data-resource-id="oldHome" />
+<meta name="ext-resource-dependency" content="assets/bounce-rate.png" data-resource-id="bounceRate" />
+<meta name="ext-resource-dependency" content="assets/homepage-early-concept.png" data-resource-id="earlyConcept" />
+<meta name="ext-resource-dependency" content="assets/homepage-desktop.png" data-resource-id="homepageDesktop" />
+<meta name="ext-resource-dependency" content="assets/homepage-mobile.png" data-resource-id="homepageMobile" />
+
+<style>
+  html, body { margin: 0; padding: 0; background: #1a1a1a; }
+  body { font-family: "Inter Tight", system-ui, sans-serif; }
+  deck-stage { --deck-bg: #1a1a1a; }
+</style>
+
+<template id="__bundler_thumbnail" data-bg-color="#F7F5F1">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#F7F5F1"/>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="240" font-weight="300" fill="#1A1A1A" letter-spacing="-8">M</text>
+    <text x="600" y="540" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="600" fill="#5C5953" letter-spacing="6">CASE STUDY · 03</text>
+  </svg>
+</template>
+
+<script type="application/json" id="speaker-notes">
+[
+  "Cover. This is Case Study 03 — Maclean's Education. UX research and sub-brand design to take Canada's most-cited rankings and make them findable. I was UX Design Lead at SJC Media; I owned this end-to-end.",
+  "Section divider 01 — Overview.",
+  "SJC Media is one of Canada's largest magazine publishers. Maclean's, founded in 1905, is the country's flagship current-affairs brand and home of its most-cited university rankings. The Education property is one of the most strategically valuable in the entire portfolio. The brief was to take that value and make it visible.",
+  "Section divider 02 — Problem & Purpose.",
+  "The content was getting published — but nobody could find it. Rankings, guides, and student stories were buried in the main Maclean's feed alongside politics and pop culture. Pages per session sat at 1.5. Engagement was under a minute. Highest time-on-page in the section, but zero recirculation.",
+  "Section divider 03 — Users & Audience.",
+  "Three audiences with three completely different jobs to do: prospective students, educators, and university administrators. Different mental models, different vocabularies. But the key finding from card sorting was decisive — all three groups navigated by content type, not by audience label. That single insight drove the entire IA.",
+  "Card sorting decided what could have been months of stakeholder debate. Two competing approaches: organize by audience or by content type. Content type won across all three groups. That gave us a defensible IA: four pillars — rankings, profiles, guides, student stories.",
+  "Section divider 04 — Role & Scope.",
+  "I led research, IA, the sub-brand visual system, and all the templates — hub, rankings, profiles, guides. Worked across editorial, product, and dev. Real constraints: existing CMS, brand-relationship tension between the hub and the Maclean's masthead, an editorial team that needed templates simple enough to publish into without UX policing, and lean dev — we descoped the profile filter mid-project to protect the launch.",
+  "Section divider 05 — Process.",
+  "Six phases over four to six months. Discover the disconnect, research the audiences, define the IA with card sorts, design the sub-brand, validate with prototype testing, then ship. The artifacts you see at the bottom span that arc — wireframe to early concept to final hub.",
+  "Section divider 06 — Outcomes.",
+  "Engagement nearly doubled. Pages per session up 47%. Engagement time roughly doubled. Total impressions up 30%. Ad revenue grew alongside. And critically — the hub created new commercial opportunities. Custom ad packages and dedicated sponsorships were possible for the first time.",
+  "And the headline number: within a year of launch, the biggest traffic week in the site's history. Over 600,000 visitors in a single week.",
+  "Section divider 07 — Lessons.",
+  "Four lessons. Sub-brand design is a trust problem first. Card sorting beats assumptions. Ship coherent over complete. Editorial buy-in is part of the UX — and that lesson now shapes how I approach every content-heavy project.",
+  "Thank you. Happy to dig into any of this — research, IA decisions, the sub-brand work, or the launch."
+]
+</script>
+</head>
+<body>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="deck-stage.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="slides.standalone.jsx"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "aesthetic": "studio",
+  "accent": "",
+  "density": "regular",
+  "showFigures": true
+}/*EDITMODE-END*/;
+
+function Deck() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const tokens = useTokens(t);
+
+  const slides = [
+    { id: 'cover',     label: 'Cover',                   render: <CoverSlide tokens={tokens} /> },
+    { id: 'd1',        label: '01 Overview',             render: <DividerSlide tokens={tokens} number="01" kicker="Section" label={<>Overview</>} /> },
+    { id: 'overview',  label: '02 Overview',             render: <OverviewSlide tokens={tokens} page={2} total={11} /> },
+    { id: 'd2',        label: '03 Problem',              render: <DividerSlide tokens={tokens} number="02" kicker="Section" label={<>Problem &amp; Purpose</>} /> },
+    { id: 'problem',   label: '04 Problem detail',       render: <ProblemSlide tokens={tokens} page={4} total={11} /> },
+    { id: 'd3',        label: '05 Audience',             render: <DividerSlide tokens={tokens} number="03" kicker="Section" label={<>Users &amp; Audience</>} /> },
+    { id: 'audiences', label: '06 Three audiences',      render: <AudiencesSlide tokens={tokens} page={6} total={11} /> },
+    { id: 'research',  label: '07 Card sorting',         render: <ResearchSlide tokens={tokens} page={7} total={11} /> },
+    { id: 'd4',        label: '08 Role',                 render: <DividerSlide tokens={tokens} number="04" kicker="Section" label={<>Role &amp; Scope</>} /> },
+    { id: 'role',      label: '09 Role detail',          render: <RoleSlide tokens={tokens} page={9} total={11} /> },
+    { id: 'd5',        label: '10 Process',              render: <DividerSlide tokens={tokens} number="05" kicker="Section" label={<>Process</>} /> },
+    { id: 'process',   label: '11 Process timeline',     render: <ProcessSlide tokens={tokens} page={11} total={11} /> },
+    { id: 'd6',        label: '12 Outcomes',             render: <DividerSlide tokens={tokens} number="06" kicker="Section" label={<>Outcomes</>} /> },
+    { id: 'outcomes',  label: '13 Outcomes table',       render: <OutcomesSlide tokens={tokens} page={13} total={11} /> },
+    { id: 'headline',  label: '14 600k visitors',        render: <HeadlineNumberSlide tokens={tokens} page={14} total={11} /> },
+    { id: 'd7',        label: '15 Lessons',              render: <DividerSlide tokens={tokens} number="07" kicker="Section" label={<>Lessons Learned</>} /> },
+    { id: 'lessons',   label: '16 Lessons detail',       render: <LessonsSlide tokens={tokens} page={16} total={11} /> },
+    { id: 'end',       label: '17 Thank you',            render: <EndSlide tokens={tokens} /> },
+  ];
+
+  return (
+    <>
+      <deck-stage width="1920" height="1080">
+        {slides.map((s) => (
+          <section key={s.id} data-label={s.label}>{s.render}</section>
+        ))}
+      </deck-stage>
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Aesthetic" />
+        <TweakRadio
+          label="Direction"
+          value={t.aesthetic}
+          options={[
+            { value: 'studio',    label: 'Studio' },
+            { value: 'editorial', label: 'Editorial' },
+            { value: 'bold',      label: 'Bold' },
+          ]}
+          onChange={(v) => setTweak('aesthetic', v)}
+        />
+        <TweakColor
+          label="Accent"
+          value={t.accent || (t.aesthetic === 'editorial' ? '#1F3A68' : t.aesthetic === 'bold' ? '#E5197F' : '#1A1A1A')}
+          onChange={(v) => setTweak('accent', v)}
+        />
+        <TweakSection label="Layout" />
+        <TweakRadio
+          label="Density"
+          value={t.density}
+          options={[
+            { value: 'compact', label: 'Compact' },
+            { value: 'regular', label: 'Regular' },
+            { value: 'comfy',   label: 'Comfy' },
+          ]}
+          onChange={(v) => setTweak('density', v)}
+        />
+      </TweaksPanel>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Deck />);
+</script>
+
+</body>
+</html>

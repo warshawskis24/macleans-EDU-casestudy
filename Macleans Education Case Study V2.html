@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Maclean's Education — Case Study (V2)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter+Tight:wght@300..700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #1a1a1a; }
+  body { font-family: "Inter Tight", system-ui, sans-serif; }
+  deck-stage { --deck-bg: #1a1a1a; }
+</style>
+
+<script type="application/json" id="speaker-notes">
+[
+  "Cover. Case Study 03 — Maclean's Education. From buried content to a destination. UX research, sub-brand strategy, IA, and product design. Three numbers up front: 35% lift in pageviews and ad impressions, pages per session moved from 2.2 to 3+ on school exploration, and we went from zero to one dedicated education destination.",
+  "Section divider 01 — The Challenge.",
+  "Maclean's Education rankings are Canada's most trusted — and they get traffic. But students arrived for rankings and left immediately. The content was living inside the main Maclean's feed, competing with politics and pop culture. The sub-brand was ambiguous — students called it 'the Maclean's Guide.' That gap between brand self-image and student vocabulary was the signal.",
+  "Section divider 02 — Users & Audience.",
+  "Three audiences. One clear primary: Grade 11–12 students in high-stakes university decision mode. Secondary: parents researching alongside their kids. Tertiary: institutions and advertisers. With a tight research budget, I used synthetic personas anchored to behavioral analytics — traffic patterns, engagement data, seasonal spikes. The data confirmed: students arrive with intent. The experience wasn't meeting them.",
+  "Section divider 03 — My Role.",
+  "Sole UX designer, end to end. I led a 0-to-1 microsite initiative — research, IA, sub-brand strategy, and product design — turning scattered education content into a navigable destination that grew engagement 35% while we navigated a simultaneous backend migration. I collaborated with a Head of Product on scope and stakeholder management, one developer on staging and WordPress templates, and the editorial team on taxonomy and operational buy-in.",
+  "Section divider 04 — Scope & Constraints.",
+  "Five months, November to April. Tight budget — most editorial budget was consumed by twice-yearly guide production. Simultaneous backend migration, WordPress constraints, exactly one new component allowed. And team PTSD from a prior failed rebrand — inherited Figma files that were 'just Maclean's but a different blue.' Key early lesson: never say 'redesign,' never say 'microsite.' Call it what it is for the team in front of you — a new home for their audience.",
+  "Section divider 05 — The Process.",
+  "Four findings. One: research said stay, the experience said go — high intent, zero pathway forward. Two: the naming question revealed the real problem — students said 'Maclean's Guide,' not 'Maclean's Education.' Three: skipping wireframes was the right call — given the team's history, low-fi in-context variations earned buy-in faster than abstract wireframes. Four: one new component, one big unlock — a flexible CTA hero shifted the mental model from news feed to destination.",
+  "Artifacts. Concept exploration on the left. Final hub design in the middle — this is the live state. Mobile rankings on the right.",
+  "Section divider 06 — Outcomes.",
+  "The numbers. 35% lift in pageviews and ad impressions — a direct business story, better IA equals more ad inventory for a high-value B2B vertical. Pages per session at 2.2 overall, 3+ on school exploration. Student hub return visitors growing year over year. Millions of Canadians reached during seasonal peaks. The architecture was working — students weren't just arriving, they were exploring.",
+  "Section divider 07 — Reflection.",
+  "What I'd do differently: fight harder for the school profile filter in v1. It was the right cut given constraints, but it was the highest-value descoped feature for our primary user. What this project confirmed: art direction belongs to editorial, UX behaviour belongs to product — establish that split early. Team trauma is a real constraint — read the room before you open Figma. And synthetic personas anchored to behavioral data are legitimate research when budget doesn't allow primary work.",
+  "Thank you. Happy to dig into any of this."
+]
+</script>
+</head>
+<body>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="deck-stage.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="slides-v2.jsx"></script>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "aesthetic": "editorial",
+  "accent": "#f401c7",
+  "density": "regular"
+}/*EDITMODE-END*/;
+
+function DeckV2() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const tokens = useTokensV2(t);
+
+  const slides = [
+    { id: 'cover',       label: '01 Cover',          render: <CoverV2 tokens={tokens} /> },
+    { id: 'd1',          label: '02 Challenge',      render: <DividerV2 tokens={tokens} number="01" kicker="Section" label={<>The Challenge</>} /> },
+    { id: 'challenge',   label: '03 Challenge body', render: <ChallengeV2 tokens={tokens} /> },
+    { id: 'd2',          label: '04 Users',          render: <DividerV2 tokens={tokens} number="02" kicker="Section" label={<>Users &amp; Audience</>} /> },
+    { id: 'users',       label: '05 Users body',     render: <UsersV2 tokens={tokens} /> },
+    { id: 'd3',          label: '06 Role',           render: <DividerV2 tokens={tokens} number="03" kicker="Section" label={<>My Role</>} /> },
+    { id: 'role',        label: '07 Role body',      render: <RoleV2 tokens={tokens} /> },
+    { id: 'd4',          label: '08 Scope',          render: <DividerV2 tokens={tokens} number="04" kicker="Section" label={<>Scope &amp; Constraints</>} /> },
+    { id: 'scope',       label: '09 Scope body',     render: <ScopeV2 tokens={tokens} /> },
+    { id: 'd5',          label: '10 Process',        render: <DividerV2 tokens={tokens} number="05" kicker="Section" label={<>The Process</>} /> },
+    { id: 'process',     label: '11 Process body',   render: <ProcessV2 tokens={tokens} /> },
+    { id: 'artifacts',   label: '12 Artifacts',      render: <ArtifactsV2 tokens={tokens} /> },
+    { id: 'd6',          label: '13 Outcomes',       render: <DividerV2 tokens={tokens} number="06" kicker="Section" label={<>Outcomes</>} /> },
+    { id: 'outcomes',    label: '14 Outcomes table', render: <OutcomesV2 tokens={tokens} /> },
+    { id: 'd7',          label: '15 Reflection',     render: <DividerV2 tokens={tokens} number="07" kicker="Section" label={<>Reflection</>} /> },
+    { id: 'reflection',  label: '16 Reflection body',render: <ReflectionV2 tokens={tokens} /> },
+    { id: 'end',         label: '17 Thank you',      render: <EndV2 tokens={tokens} /> },
+  ];
+
+  return (
+    <>
+      <deck-stage width="1920" height="1080">
+        {slides.map((s) => (
+          <section key={s.id} data-label={s.label}>{s.render}</section>
+        ))}
+      </deck-stage>
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Aesthetic" />
+        <TweakRadio
+          label="Direction"
+          value={t.aesthetic}
+          options={[
+            { value: 'studio',    label: 'Studio' },
+            { value: 'editorial', label: 'Editorial' },
+            { value: 'bold',      label: 'Bold' },
+          ]}
+          onChange={(v) => setTweak('aesthetic', v)}
+        />
+        <TweakColor
+          label="Accent"
+          value={t.accent || (t.aesthetic === 'editorial' ? '#1F3A68' : t.aesthetic === 'bold' ? '#E5197F' : '#1A1A1A')}
+          onChange={(v) => setTweak('accent', v)}
+        />
+        <TweakSection label="Layout" />
+        <TweakRadio
+          label="Density"
+          value={t.density}
+          options={[
+            { value: 'compact', label: 'Compact' },
+            { value: 'regular', label: 'Regular' },
+            { value: 'comfy',   label: 'Comfy' },
+          ]}
+          onChange={(v) => setTweak('density', v)}
+        />
+      </TweaksPanel>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<DeckV2 />);
+</script>
+
+</body>
+</html>
