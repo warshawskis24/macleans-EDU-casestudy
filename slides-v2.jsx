@@ -413,10 +413,9 @@ function ReflectionV2({ tokens }) {
     { n: '03', t: 'Synthetic personas are legitimate research.', d: 'Anchored to strong behavioral data, they\u2019re a real method when budget doesn\u2019t allow primary research.' },
   ];
   return (
-    <ContentV2 tokens={tokens} kicker="07 — Reflection" title={<>What I\u2019d <em style={{ fontStyle: 'italic' }}>do differently.</em></>}>
+    <ContentV2 tokens={tokens} kicker="07 — Reflection" title={<>What Would I Do Differently</>}>
       <div style={{ background: palette.ink, color: '#fff', padding: '36px 44px', borderRadius: 4, marginTop: 8 }}>
-        <span style={{ fontSize: type.micro, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>What I'd do differently</span>
-        <div style={{ marginTop: 16, fontSize: type.body, fontFamily: '"Fraunces", Georgia, serif', lineHeight: 1.3, letterSpacing: '-0.01em', fontWeight: 350 }}>
+        <div style={{ fontSize: type.body, fontFamily: '"Fraunces", Georgia, serif', lineHeight: 1.3, letterSpacing: '-0.01em', fontWeight: 350 }}>
           Fight harder for the school profile filter in v1. It was the right cut given constraints — but it was the highest-value descoped feature for our primary user, directly serving students at the most critical point of their decision.
         </div>
       </div>
